@@ -60,7 +60,12 @@ func (c *Coordinator) Done() bool {
 // create a Coordinator.
 // main/mrcoordinator.go calls this function.
 // nReduce is the number of reduce tasks to use.
-//
+// The coordinator can't reliably distinguish between crashed workers, workers that are alive but have stalled for some reason, 
+//and workers that are executing but too slowly to be useful. The best you can do is have the coordinator wait for some amount of time, 
+//and then give up and re-issue the task to a different worker. 
+//For this lab, have the coordinator wait for ten seconds; after that the coordinator should assume the worker has died (of course, it might not have).
+
+
 func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	c := Coordinator{}
 
