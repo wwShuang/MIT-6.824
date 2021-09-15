@@ -36,6 +36,19 @@ func Worker(mapf func(string, string) []KeyValue,
 	// The worker's map task code will need a way to store intermediate key/value pairs in files in a way that can be correctly read back during reduce tasks. 
 	// One possibility is to use Go's encoding/json package. To write key/value pairs to a JSON file:保存格式
 	
+// 	enc := json.NewEncoder(file)
+//   	for _, kv := ... {
+//     	err := enc.Encode(&kv)
+	//and to read such a file back:
+//   dec := json.NewDecoder(file)
+//   for {
+//     var kv KeyValue
+//     if err := dec.Decode(&kv); err != nil {
+//       break
+//     }
+//     kva = append(kva, kv)
+//   }
+	
 	// reduce 实现
 	// Workers will sometimes need to wait,One possibility is for workers to periodically ask the coordinator for work, sleeping with time.Sleep() between each request
 	// 暂时不懂： Another possibility is for the relevant RPC handler in the coordinator to have a loop that waits, either with time.Sleep() or sync.Cond. Go runs the handler for each RPC in its own thread, so the fact that one handler is waiting won't prevent the coordinator from processing other RPCs.
