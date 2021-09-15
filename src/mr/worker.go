@@ -1,8 +1,8 @@
 package mr
-
+//都是标准库
 import "fmt"
 import "log"
-import "net/rpc"
+import "net/rpc"  
 import "hash/fnv"
 
 
@@ -67,7 +67,7 @@ func CallExample() {
 // returns false if something goes wrong.
 //
 func call(rpcname string, args interface{}, reply interface{}) bool {
-	// c, err := rpc.DialHTTP("tcp", "127.0.0.1"+":1234")
+	// c, err := rpc.DialHTTP("tcp", "127.0.0.1"+":1234")  // 都是标准库
 	sockname := coordinatorSock()
 	c, err := rpc.DialHTTP("unix", sockname)
 	if err != nil {
