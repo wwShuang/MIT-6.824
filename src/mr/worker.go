@@ -33,7 +33,7 @@ func Worker(mapf func(string, string) []KeyValue,
 
 	// Your worker implementation here.
 
-	// uncomment to send the Example RPC to the coordinator.
+	// uncomment to send the Example RPC to the coordinator.（hint1修改）
 	// CallExample()
 
 }
@@ -44,7 +44,7 @@ func Worker(mapf func(string, string) []KeyValue,
 // the RPC argument and reply types are defined in rpc.go.
 //
 func CallExample() {
-
+// rpc 中定义的结构体
 	// declare an argument structure.
 	args := ExampleArgs{}
 
