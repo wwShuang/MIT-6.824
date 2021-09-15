@@ -30,7 +30,15 @@ func ihash(key string) int {
 //
 func Worker(mapf func(string, string) []KeyValue,
 	reducef func(string, []string) string) {  //worker接受map和reduce函数。
-
+	//map 实现 可参考 steal some code from mrsequential.go 
+	//for reading Map input files, for sorting intermedate key/value pairs between the Map and Reduce, and for storing Reduce output in files.
+	// intermediate files is mr-X-Y, where X is the Map task number, and Y is the reduce task number. (得到的中间文件保存命名)
+	// The worker's map task code will need a way to store intermediate key/value pairs in files in a way that can be correctly read back during reduce tasks. 
+	// One possibility is to use Go's encoding/json package. To write key/value pairs to a JSON file:保存格式
+	
+	// reduce 实现
+	// Workers will sometimes need to wait,One possibility is for workers to periodically ask the coordinator for work, sleeping with time.Sleep() between each request
+	// 暂时不懂： Another possibility is for the relevant RPC handler in the coordinator to have a loop that waits, either with time.Sleep() or sync.Cond. Go runs the handler for each RPC in its own thread, so the fact that one handler is waiting won't prevent the coordinator from processing other RPCs.
 	// Your worker implementation here.
 
 	// uncomment to send the Example RPC to the coordinator.（hint1修改）
