@@ -6,7 +6,7 @@ import "os"
 import "net/rpc"
 import "net/http"
 
-
+//任务一。Coordinator结构体。
 type Coordinator struct {
 	// Your definitions here.
 
@@ -47,6 +47,7 @@ func (c *Coordinator) server() {
 
 // main/mrcoordinator.go expects mr/coordinator.go to implement a Done() method that returns true 
 //when the MapReduce job is completely finished; at that point, mrcoordinator.go will exit.
+//任务二，完成bone函数。
 func (c *Coordinator) Done() bool {
 	ret := false
 
@@ -59,13 +60,14 @@ func (c *Coordinator) Done() bool {
 //
 // create a Coordinator.
 // main/mrcoordinator.go calls this function.
+
 // nReduce is the number of reduce tasks to use.
 // The coordinator can't reliably distinguish between crashed workers, workers that are alive but have stalled for some reason, 
 //and workers that are executing but too slowly to be useful. The best you can do is have the coordinator wait for some amount of time, 
 //and then give up and re-issue the task to a different worker. 
 //For this lab, have the coordinator wait for ten seconds; after that the coordinator should assume the worker has died (of course, it might not have).
 
-
+// 任务三，完成 make coordinator函数。
 func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	c := Coordinator{}
 
