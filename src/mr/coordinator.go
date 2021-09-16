@@ -19,14 +19,14 @@ type Coordinator struct {
 //
 // the RPC argument and reply types are defined in rpc.go.
 //
-func (c *Coordinator) Example(args *ExampleArgs, reply *ExampleReply) error {
+func (c *Coordinator) Example(args *ExampleArgs, reply *ExampleReply) error {   // 通信操作,变量改变
 	reply.Y = args.X + 1
 	return nil
 }
 
 
 //
-// start a thread that listens for RPCs from worker.go
+// start a thread that listens for RPCs from worker.go  意思和tcp 差不多?（listen ）
 //
 func (c *Coordinator) server() {
 	rpc.Register(c)
