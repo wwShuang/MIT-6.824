@@ -27,7 +27,7 @@ func ihash(key string) int {
 
 //
 // main/mrworker.go calls this function.
-//
+//就一个任务，完成worker功能。
 func Worker(mapf func(string, string) []KeyValue,
 	reducef func(string, []string) string) {  //worker接受map和reduce函数。
 	//map 实现 可参考 steal some code from mrsequential.go 
