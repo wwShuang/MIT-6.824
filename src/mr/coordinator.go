@@ -12,7 +12,7 @@ type Coordinator struct {
 
 }
 
-// Your code here -- RPC handlers for the worker to call.
+// Your code here -- RPC handlers for the worker to call. 任务一点儿五。完全rpc接口。
 
 //
 // an example RPC handler.
